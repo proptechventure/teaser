@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Summarizer</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .upload-box { border: 2px dashed #ccc; padding: 20px; text-align: center; margin: 20px 0; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>PDF Presentation Summarizer</h1>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form method="post" enctype="multipart/form-data">
+        <div class="upload-box">
+            <p>Drag & drop PDF or click to select</p>
+            <input type="file" name="file" accept=".pdf" required>
+        </div>
+        <button type="submit">Generate Summary</button>
+    </form>
+</body>
+</html>
