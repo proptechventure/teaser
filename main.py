@@ -2,15 +2,8 @@ from fastapi import FastAPI, UploadFile, File
 from teaser_generator import generate_teaser
 import shutil
 import uuid
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
 
 app = FastAPI()
-
-@app.get("/", response_class=HTMLResponse)
-def read_root():
-    return "<h1>Teaser AI is running 🚀</h1><p>Go to <a href='/docs'>/docs</a> to use the API.</p>"
-
 
 @app.post("/upload")
 async def upload_files(pptx: UploadFile = File(...), excel: UploadFile = File(...), logo: UploadFile = File(...)):
